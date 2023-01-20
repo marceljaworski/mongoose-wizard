@@ -5,7 +5,7 @@
 In the next tasks, we will create a REST API so that clients can connect and perform actions on our server
 
 1. Add [cors](https://www.npmjs.com/package/cors) npm package to your middleware stack. This will prevent the dreaded same origin policy error in your browser.
-
+x
 2. Add the `express.json()` middleware to your middleware stack. This will properly parse any JSON sent with the client body.
 
 > Remember to run your middleware before any of your routes!
