@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import magicSpellRoutes from "./routes/magicSpell.js";
+import wizardRoutes from "./routes/wizard.js";
 
 dotenv.config();
 import "./lib/mongoose.js"
@@ -20,6 +21,7 @@ import logMiddleware from "./middlewares/log.js";
 app.use(logMiddleware);
 app.use(cors({origin:"*"}));
 app.use("/magic-spell", magicSpellRoutes);
+app.use("/wizard", wizardRoutes);
 
 console.log("Casting Mongoose database connection spell... 🪄");
 

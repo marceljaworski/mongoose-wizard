@@ -6,7 +6,7 @@ const magicSpellRoutes = Router();
 
 
 magicSpellRoutes.post("/", magicSpell.create);
-magicSpellRoutes.get("/", magicSpell.getAll);
+magicSpellRoutes.get("/all", magicSpell.getAll);
 magicSpellRoutes.get("/:magicId", magicSpell.getOne);
 magicSpellRoutes.put("/:magicId", magicSpell.replace);
 magicSpellRoutes.patch("/:magicId", magicSpell.update);

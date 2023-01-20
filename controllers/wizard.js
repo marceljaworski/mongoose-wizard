@@ -1,7 +1,7 @@
-import * as MagicSpell from "../models/MagicSpell.js"
+import * as Wizard from "../models/Wizard.js"
 export const create = async (req, res, next) => {
     try {
-        const result = await MagicSpell.create(req.body);
+        const result = await Wizard.create(req.body);
         res.status(201).json(result);
     } catch(err) {
         next(err);
@@ -11,7 +11,7 @@ export const create = async (req, res, next) => {
 };
 export const getAll = async (req, res, next) => {
     try {
-        const result = await MagicSpell.getAll();
+        const result = await Wizard.getAll();
         res.status(200).json(result);
     } catch (err) {
         next(err);
@@ -20,7 +20,7 @@ export const getAll = async (req, res, next) => {
 
 export const getOne = async (req, res, next) => {
     try {
-        const result = await MagicSpell.getOne(req.params.magicId);
+        const result = await Wizard.getOne(req.params.wizardId);
         res.status(200).json(result);
     } catch(err) {
         next(err);
@@ -28,7 +28,7 @@ export const getOne = async (req, res, next) => {
 }
 export const replace = async (req, res, next) => {
     try {
-        const result = await MagicSpell.replace(req.params.magicId, req.body)
+        const result = await Wizard.replace(req.params.wizardId, req.body)
         res.status(201).json(result)
     }catch(err) {
         next(err);
@@ -40,7 +40,7 @@ export const update = async (req, res) => {
         return
     }
     try {
-        const result = await MagicSpell.update(req.params.magicId, req.body);
+        const result = await Wizard.update(req.params.wizardId, req.body);
         res.status(201).json(result);
     }catch(err) {
         next(err);
@@ -48,7 +48,7 @@ export const update = async (req, res) => {
 };
 export const deleteOne = async (req, res, next) => {
     try{
-        await MagicSpell.deleteOne(req.params.magicId)
+        await Wizard.deleteOne(req.params.wizardId)
         res.status(204).send()
     }catch(err) {
         next(err);

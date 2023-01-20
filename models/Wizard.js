@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { MagicSpell } from "./MagicSpell.js"
+import MagicSpell from "./MagicSpell.js"
 
 const wizardSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -48,11 +48,42 @@ const wizardSchema = new mongoose.Schema({
     }, 
   },
   spells:[{
-    type: mongoose.schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "MagicSpell",
   }],
 });
 
 const Wizard = mongoose.model("Wizard", wizardSchema);
+export const create = async (document) => {    
+  const newWizard = new Wizard(document);
+  const result = await newWizard.save();
+  return result;
+  
+};
+export const getAll = async () => {
+  const wizards = await Wizard.find()
+  // .populate("album");
+  return wizards;
+};
+
+export const getOne = async (wizardId) => {
+  const wizard = await Wizard.findById(wizardId);
+  return wizard;
+};
+export const replace = async (wizardId, data) => {
+  const wizard = await Wizard.findOneAndReplace({_id: wizardId}, data, {returnDocument: "after", runValidators: true},);
+
+  return wizard;
+};
+export const update = async (wizardId, data) => {
+  const wizard = await Wizard.findByIdAndUpdate(wizardId, data, {new: true, runValidators: true});
+
+  return wizard;
+};
+export const deleteOne = async (wizardId) => {
+  const wizard = await Wizard.findByIdAndDelete(wizardId)
+
+  return wizard;
+};
 
 export default Wizard;
