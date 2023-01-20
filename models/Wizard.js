@@ -45,12 +45,11 @@ const wizardSchema = new mongoose.Schema({
       type: Number,
       min: 0,
       default: 100,
-    },
-    
+    }, 
   },
   spells:[{
     type: mongoose.schema.Types.ObjectId,
-    ref: MagicSpell,
+    ref: "MagicSpell",
   }],
 });
 

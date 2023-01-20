@@ -1,5 +1,16 @@
-import express from "express";
+import { Router } from "express";
+import * as magicSpell from "../controllers/magicSpell.js";
 
-const router = express.Router();
 
-export default router;
+const magicSpellRoutes = Router();
+
+
+magicSpellRoutes.post("/", magicSpell.create);
+magicSpellRoutes.get("/", magicSpell.getAll);
+magicSpellRoutes.get("/:magicId", magicSpell.getOne);
+magicSpellRoutes.put("/:magicId", magicSpell.replace);
+magicSpellRoutes.patch("/:magicId", magicSpell.update);
+magicSpellRoutes.delete("/:magicId", magicSpell.deleteOne);
+
+
+export default magicSpellRoutes;

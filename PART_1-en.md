@@ -62,37 +62,37 @@ Add validation to the following number based fields, so that values do not go ab
 
 > Hint: Not sure how? Check out [validation](https://mongoosejs.com/docs/validation.html#built-in-validators)
 
-- `age` should not go below **1**
-- `level` should not go below **1**
-- `accuracy` should not go below **0** and not above **1**
-- `critical` should not go below **0** and not above **1**
+x- `age` should not go below **1**
+x- `level` should not go below **1**
+x- `accuracy` should not go below **0** and not above **1**
+x- `critical` should not go below **0** and not above **1**
 
 ### Task 7 - Adding number validation to the MagicSpell schema
 
 Add validation to the following number based fields, so that values do not go above or below what we expect
 
-- `cost` should not go below **1**
-- `damage` should not go below **0**
-- `castingTime` should not go below **0**
-- `level` should not go below **1**
-- `range` should not go below **0**
+x- `cost` should not go below **1**
+x- `damage` should not go below **0**
+x- `castingTime` should not go below **0**
+x- `level` should not go below **1**
+x- `range` should not go below **0**
 
 ### Task 8 - Adding a subdocument to the Wizard schema
-
+x
 1. Add a new field `energy`. This will contain the subdocument
-
+x
 2. Add the following fields to the `energy` subdocument. They will all be of type `Number`.
 
     - `health`
     - `stamina`
     - `magic`
-
+x
 3. Add default values to each of these fields
 
     - `health` should default to **1**
     - `stamina` should default to **10**
     - `magic` should default to **100**
-
+x
 4. Add validation to these fields
 
     - `health` should not go below **0**
@@ -102,17 +102,17 @@ Add validation to the following number based fields, so that values do not go ab
 ### Task 9 - Linking the Wizard schema with the MagicSpell schema
 
 A wizard would be no fun without spells, am I right? Let's give each wizard the ability to learn spells.
-
+x
 1. Add a new field `spells`. This will contain a reference to the MagicSpell model.
-
+x
 2. Set the type to `ObjectId`
-
+x
 3. Add a `ref` to the `MagicSpell` collection
 
 > Now each wizard can have a spell assigned to them
 
 ### Task 10 - Extending each wizard's knowledge of spells
-
+x
 Unfortunately each wizard has access to 1 spell, but we want to give them the ability to hold multiple spells
 
 Wrap the object you assigned to the field `spells` inside an array. This will make `spells` an array of `ObjectId`'s.
